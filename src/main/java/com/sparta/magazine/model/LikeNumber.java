@@ -21,7 +21,7 @@ public class LikeNumber {
     private String postId;
 
     @Column
-    private String userId;
+    private String username;
 
     @ManyToOne
     @JoinColumn(name = "USER_ACCOUNTID", nullable = false)
@@ -31,8 +31,8 @@ public class LikeNumber {
     @JoinColumn(name = "POST_POSTID", nullable = false)
     private Post posts;
 
-    public LikeNumber(String postId, String userId) {
+    public LikeNumber(String postId, String username) {
         this.postId = postId;
-        this.userId = userId;
+        this.username = username;
     }
 }

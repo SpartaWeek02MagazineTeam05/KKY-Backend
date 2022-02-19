@@ -19,17 +19,17 @@ public class User extends Timestamped {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String userId;
+    private String username;
 
     @Column(nullable = false)
-    private String userPwd;
+    private String password;
 
     @Column(nullable = false, unique = true)
     private String nickName;
 
-    public User(String userId, String userPwd, String nickName) {
-        this.userId = userId;
-        this.userPwd = userPwd;
+    public User(String username, String password, String nickName) {
+        this.username = username;
+        this.password = password;
         this.nickName = nickName;
     }
 

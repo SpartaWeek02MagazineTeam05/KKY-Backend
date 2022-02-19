@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class PostRequestDto {
     private String content;
     private Long like;
-    private String userId;
+    private String username;
     private String image;
 }
