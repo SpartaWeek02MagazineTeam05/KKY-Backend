@@ -9,7 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponseDto {
+public class LoginResponseDto {
     private boolean result;
     private String msg;
+    private String token;
+    private String username;
+    private String nickName;
 }

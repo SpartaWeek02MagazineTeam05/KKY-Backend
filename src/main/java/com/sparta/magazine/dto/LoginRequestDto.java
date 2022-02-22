@@ -7,9 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserResponseDto {
-    private boolean result;
-    private String msg;
+@NoArgsConstructor
+public class LoginRequestDto {
+    private String username;
+    private String password;
 }

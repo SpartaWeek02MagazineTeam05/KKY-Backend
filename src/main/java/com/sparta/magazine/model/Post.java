@@ -1,8 +1,10 @@
 package com.sparta.magazine.model;
 
+import com.sparta.magazine.dto.PostRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -17,23 +19,34 @@ public class Post extends Timestamped {
     @Column(name = "postId")
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String content;
 
     @Column
-    private Long likeNumber;
+    @ColumnDefault("0")
+    private Long likeCount;
 
-    @Column
+    @Column(nullable = false)
     private String nickName;
 
     @Column
     private String image;
 
-    public Post(String content, Long likeNumber, String nickName, String image) {
-        this.content = content;
-        this.likeNumber = likeNumber;
-        this.nickName = nickName;
-        this.image = image;
+    @Column(nullable = false)
+    private String type;
+
+    public Post(PostRequestDto requestDto) {
+        this.content = requestDto.getContent();
+        this.nickName = requestDto.getNickName();
+        this.image = requestDto.getImage();
+        this.type = requestDto.getType();
+    }
+
+    public void update(PostRequestDto requestDto) {
+        this.content = requestDto.getContent();
+        this.nickName = requestDto.getNickName();
+        this.image = requestDto.getImage();
+        this.type = requestDto.getImage();
     }
 
 }

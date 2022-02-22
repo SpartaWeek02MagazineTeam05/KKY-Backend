@@ -1,16 +1,23 @@
 package com.sparta.magazine.controller;
 
-import com.sparta.magazine.security.UserDetailsImpl;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+
     @GetMapping("/")
-    public String home(Model model, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        model.addAttribute("username", userDetails.getUsername());
+    public String home() {
         return "index";
+    }
+
+    @GetMapping("/api/register")
+    public String registerForm() {
+        return "registerForm";
+    }
+
+    @GetMapping("/api/login")
+    public String loginForm() {
+        return "loginForm";
     }
 }
